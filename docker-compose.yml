@@ -1,0 +1,31 @@
+version: '2'
+services:
+
+  mysql-trade:
+    image: mysql:5.6
+    ports:
+      - "3308:3306"
+    volumes:
+    #  - ./my.cnf:/etc/mysql/my.cnf
+      - mysql-trade-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+  webserver-trade:
+    image: marciogimenez/webserver-5.6:1.1
+    ports:
+      - "81:80"
+    environment:
+       DEFAULT_DB_HOST: mysql-somosid
+       DEFAULT_DB_USER: root
+       DEFAULT_DB_PASS: root
+       DEFAULT_DB_DATABASE: caduni
+    links:
+      - mysql-trade
+    depends_on:
+      - mysql-trade
+
+
+volumes:
+  mysql-trade-data:
+

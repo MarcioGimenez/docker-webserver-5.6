@@ -1,0 +1,6 @@
+version: '2'
+services:
+
+  webserver-trade:
+    volumes:
+      - ../Shopitos/:/var/www/html/
