@@ -22,6 +22,8 @@ services:
        DEFAULT_DB_DATABASE: caduni
     links:
       - mysql-trade
+    volumes:
+      - /var/www/html:/var/www/html
     depends_on:
       - mysql-trade
 

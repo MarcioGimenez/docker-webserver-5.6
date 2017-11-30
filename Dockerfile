@@ -60,7 +60,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN locale-gen en_US.UTF-8
 RUN update-locale LANG=en_US.UTF-8
 
-VOLUME /var/www/html
 VOLUME /var/log/httpd
 
 EXPOSE 80
